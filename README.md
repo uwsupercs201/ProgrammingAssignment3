@@ -1,5 +1,36 @@
 # Programming Assignment 3
 
+Starter Code:
+
+The following imports need to be included in your Java class:
+
+```java
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.util.Scanner; // Import the Scanner class to read text files
+```
+
+The following code should be added to your `main` method at the beginning. You'll need to include the `clientDatabase.txt` file in your project folder.
+
+```java
+    try {
+      File database = new File("clientDatabase.txt");
+      Scanner fileReader = new Scanner(database);
+      String[] databaseAsArray = new String[25]
+      for(int i = 0; i<25; i++){
+        String data = fileReader.nextLine();
+        System.out.println(data);
+      }
+      fileReader.close();
+    } catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+  }
+ ```
+ 
+ These lines of code will read in the database file provided and create an array called `databaseAsArray` which contains a single line of the document per index.
+
 ## Goal: Learn to work with arrays.
 
 For this project, I will provide you with a list of names and ID numbers, in a .txt file with the format
@@ -17,7 +48,7 @@ This data is critical for your company, but for security purposed you can't just
 
 ## Implementation Guidelines
 
-- Your program should contain an array of strings called `database`. Each element of the `database` array should be a string which contains 1 line of the .txt document. You will not need to add contents to this file, so the array can be exactly as long as the number of lines of the .txt document. 
+- Your program will contain an array of strings called `databaseAsArray`. Each element of the `databaseAsArray` array should be a string which contains 1 line of the .txt document. This is accomplished by the starter code.
 - The main method of the program creates the user experience. It should ask the user whether they are a Sales Manager, Customer Service Rep, CEO or COO. Based on their response it should list the options they can perform:
 
 | Title | Options |
